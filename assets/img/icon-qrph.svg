@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40" width="100" height="40">
+  <rect width="100" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="8" y="10" width="20" height="20" rx="3" fill="#D32F2F"/>
+  <rect x="12" y="14" width="12" height="12" rx="1" fill="#FFFFFF"/>
+  <rect x="15" y="17" width="6" height="6" fill="#D32F2F"/>
+  <text x="34" y="25" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="13" font-weight="800" fill="#1E293B">QR<tspan fill="#1E88E5">.ph</tspan></text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 80" width="540" height="80">
+  <!-- Sarah K Logo Text -->
+  <text x="10" y="42" font-family="'Abhaya Libre', 'Playfair Display', serif" font-size="34" font-weight="700" letter-spacing="4" fill="#111827">SARAH K</text>
+  <text x="10" y="58" font-family="'Gabarito', 'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" letter-spacing="5" fill="#c5a059">PHILIPPINES</text>
+  
+  <!-- Elegant Vertical Divider -->
+  <line x1="225" y1="18" x2="225" y2="62" stroke="#D1D5DB" stroke-width="1.5" />
+  
+  <!-- Distributor Powered By Info -->
+  <g transform="translate(242, 22)">
+    <text x="0" y="11" font-family="'Gabarito', sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#6B7280">SOLE &amp; EXCLUSIVE COUNTRY DISTRIBUTOR</text>
+    <text x="0" y="26" font-family="'Gabarito', sans-serif" font-size="12" font-weight="800" letter-spacing="0.8" fill="#111827">GLOSSY STRAND</text>
+    <text x="0" y="38" font-family="'Gabarito', sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.2" fill="#4E536B">HAIR CARE PRODUCTS TRADING</text>
+  </g>
+</svg>

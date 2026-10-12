@@ -1,0 +1,17 @@
+# Large loose raw camera dumps from local uploads
+*.jpg
+!assets/img/*.jpg
+!assets/img/*.png
+!assets/img/*.svg
+!assets/img/*.webp
+
+# System & OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Temporary files
+*.tmp
+*.zip
