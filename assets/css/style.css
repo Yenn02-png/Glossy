@@ -13,34 +13,39 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-editorial-italic: 'Playfair Display', Georgia, serif;
 
-  /* Neutral Luxury Canvas with Soft Pastel Pink Glow */
-  --color-canvas: #FAF2F5;
-  --color-canvas-subtle: #F6E6EB;
+  /* Neutral Luxury Canvas with Soft Pastel Blue, Pastel Pink & Pastel Gold Glow */
+  --color-canvas: #F6F3F7;
+  --color-canvas-subtle: #EDF1F7;
   --color-white: #FFFFFF;
   --color-noir: #181614;
   --color-noir-soft: #282421;
   --color-espresso: #38332E;
   --color-slate-muted: #726B64;
   --color-slate-light: #9B948C;
-  --color-border-light: #E8E2D9;
+  --color-border-light: #E6E1DC;
   --color-border-gold: rgba(191, 162, 126, 0.35);
 
-  /* Signature Baby Pink Palette (Matching Glossy Strand Logo Silhouette) */
-  --baby-pink-tint: #FFF4F6;
-  --baby-pink-soft: #FDF0F3;
-  --baby-pink-subtle: #FCE6EC;
-  --baby-pink-border: #F8CAD5;
+  /* Signature Pastel Pink Palette */
+  --baby-pink-tint: #FFF4F7;
+  --baby-pink-soft: #FDF0F4;
+  --baby-pink-subtle: #FCE6EE;
+  --baby-pink-border: #F8CAD7;
   --baby-pink-accent: #D96A88;
   --baby-pink-deep: #A43452;
-  --baby-pink-gradient: linear-gradient(135deg, #FFF5F7 0%, #FAF2F5 50%, #FDE8ED 100%);
+  --baby-pink-gradient: linear-gradient(135deg, #F0F4FC 0%, #FAF0F4 50%, #FCF6EC 100%);
   --baby-pink-glow: 0 8px 24px rgba(217, 106, 136, 0.16);
 
-  /* Primary Brand Metallics: Champagne Silk & Warm Gold */
+  /* Signature Pastel Blue Palette */
+  --pastel-blue-soft: #EBF3FC;
+  --pastel-blue-border: #D1E2F5;
+  --pastel-blue-accent: #6C92BD;
+
+  /* Primary Brand Metallics: Champagne Silk & Warm Pastel Gold */
   --gold-primary: #BFA27E;
   --gold-dark: #A38259;
   --gold-light: #DFC8AD;
-  --gold-tint: #FAF5EE;
-  --gold-gradient: linear-gradient(135deg, #BFA27E 0%, #D4BC9B 50%, #A38259 100%);
+  --gold-tint: #FAF6ED;
+  --gold-gradient: linear-gradient(135deg, #EBF3FC 0%, #FAF0F4 40%, #F8EFE0 75%, #DFC8AD 100%);
   --gold-glow: 0 10px 30px rgba(191, 162, 126, 0.22);
 
   /* Refined, Editorial Product Tones (Muted luxury, non-garish) */
@@ -91,11 +96,13 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--color-noir);
-  background-color: #FAF2F5;
+  background-color: #F8F5F8;
   background-image: 
-    radial-gradient(circle at 10% 12%, rgba(254, 226, 236, 0.75) 0%, transparent 45%),
-    radial-gradient(circle at 90% 75%, rgba(250, 216, 228, 0.65) 0%, transparent 50%),
-    radial-gradient(circle at 45% 95%, rgba(253, 232, 240, 0.5) 0%, transparent 40%);
+    radial-gradient(circle at 8% 12%, rgba(225, 237, 252, 0.85) 0%, transparent 45%),
+    radial-gradient(circle at 92% 18%, rgba(254, 228, 238, 0.8) 0%, transparent 48%),
+    radial-gradient(circle at 85% 80%, rgba(249, 238, 218, 0.55) 0%, transparent 42%),
+    radial-gradient(circle at 15% 85%, rgba(228, 240, 254, 0.7) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(253, 236, 244, 0.5) 0%, transparent 50%);
   background-attachment: fixed;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -573,7 +580,11 @@ button {
    ========================================================================= */
 .editorial-hero-section {
   padding: 70px 0 90px 0;
-  background: radial-gradient(circle at 15% 20%, #FFF0F4 0%, #FAF2F5 55%, #FDEBF0 100%);
+  background: 
+    radial-gradient(circle at 12% 25%, rgba(225, 237, 252, 0.9) 0%, transparent 55%),
+    radial-gradient(circle at 88% 30%, rgba(254, 228, 238, 0.85) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(249, 238, 218, 0.5) 0%, transparent 45%),
+    linear-gradient(180deg, #F9F5F8 0%, #FAF1F5 100%);
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--baby-pink-border);
@@ -587,7 +598,7 @@ button {
   width: 550px;
   height: 550px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(191, 162, 126, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(225, 237, 252, 0.5) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2064,7 +2075,11 @@ button {
    Unified across About, Products, Distributor, and Contact
    ========================================================= */
 .page-hero-editorial {
-  background: radial-gradient(circle at 10% 20%, #FFF0F4 0%, #FAF2F5 50%, #FDE6EC 100%);
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(225, 237, 252, 0.85) 0%, transparent 55%),
+    radial-gradient(circle at 90% 30%, rgba(254, 228, 238, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(249, 238, 218, 0.45) 0%, transparent 45%),
+    linear-gradient(180deg, #F8F5F8 0%, #FAF0F4 100%);
   padding: 84px 0 64px 0;
   border-bottom: 1px solid var(--baby-pink-border);
   text-align: center;
