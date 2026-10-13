@@ -1386,7 +1386,11 @@ button {
    ========================================================================= */
 .packages-atelier-section {
   padding: 96px 0;
-  background: #FFFFFF;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(225, 237, 252, 0.75) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(254, 228, 238, 0.75) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(249, 238, 218, 0.45) 0%, transparent 45%),
+    linear-gradient(180deg, #FFFFFF 0%, #FAF2F6 100%);
   border-bottom: 1px solid var(--color-border-light);
 }
 
@@ -1471,8 +1475,35 @@ button {
 }
 
 .luxury-pkg-card.featured .pkg-price-banner {
-  background: var(--gold-tint);
-  border-color: rgba(191, 162, 126, 0.4);
+  background: linear-gradient(135deg, rgba(225, 237, 252, 0.6) 0%, rgba(254, 228, 238, 0.6) 50%, rgba(249, 238, 218, 0.4) 100%);
+  border-color: var(--baby-pink-border);
+}
+
+.btn-pkg-protocol {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, rgba(225, 237, 252, 0.8) 0%, rgba(254, 228, 238, 0.8) 50%, rgba(249, 238, 218, 0.6) 100%);
+  border: 1.5px solid var(--baby-pink-border);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-noir);
+  cursor: pointer;
+  margin: 18px 0 12px 0;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(217, 106, 136, 0.08);
+}
+
+.btn-pkg-protocol:hover {
+  transform: translateY(-2px);
+  border-color: var(--baby-pink-accent);
+  box-shadow: 0 6px 18px rgba(217, 106, 136, 0.16);
+  background: #FFFFFF;
 }
 
 .pkg-price-amount {
@@ -2357,7 +2388,11 @@ button {
    ========================================================================= */
 .official-partners-section {
   padding: 88px 0;
-  background: var(--baby-pink-tint);
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(225, 237, 252, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(254, 228, 238, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(249, 238, 218, 0.45) 0%, transparent 45%),
+    linear-gradient(180deg, #F8F5F8 0%, #FAF0F4 100%);
   border-bottom: 1px solid var(--baby-pink-border);
 }
 
@@ -2474,7 +2509,11 @@ button {
    ========================================================================= */
 .home-showcase-section {
   padding: 88px 0;
-  background: linear-gradient(180deg, #FAF2F5 0%, #FFF7F9 50%, #FAF2F5 100%);
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(225, 237, 252, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(254, 228, 238, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(249, 238, 218, 0.45) 0%, transparent 45%),
+    linear-gradient(180deg, #FAF2F5 0%, #F6F1F8 100%);
   border-bottom: 1px solid var(--baby-pink-border);
 }
 
@@ -2576,7 +2615,11 @@ button {
    ========================================================================= */
 .events-section {
   padding: 96px 0;
-  background: linear-gradient(180deg, #FAF2F5 0%, #FFF5F8 50%, #FAF2F5 100%);
+  background: 
+    radial-gradient(circle at 12% 20%, rgba(225, 237, 252, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 88% 80%, rgba(254, 228, 238, 0.8) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(249, 238, 218, 0.45) 0%, transparent 45%),
+    linear-gradient(180deg, #FAF2F5 0%, #FFF5F8 50%, #FAF2F5 100%);
 }
 
 .events-timeline {

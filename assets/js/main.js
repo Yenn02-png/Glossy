@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBoutiqueFilters();
   initFaqAccordion();
   initQuickViewModal();
+  initPackageProtocolModal();
   initConciergeForm();
   initMobileNav();
 });
@@ -381,6 +382,150 @@ function initQuickViewModal() {
 }
 
 /* =========================================================================
+   6B. SALON PACKAGES INTERACTIVE STEP-BY-STEP POP-UP MODAL (WORD BY WORD)
+   ========================================================================= */
+const PACKAGE_PROTOCOLS = {
+  'carnival-pkg': {
+    title: 'Carnival Package — Step-by-Step Application',
+    target: 'Normal to Resistant Hair • 11 Steps (Word by Word)',
+    price: '₱18,300 Package SRP',
+    demoNotice: 'Includes Free Hands-on Personal Demo & Salon Training',
+    steps: [
+      { num: '1', title: 'PERFORM AN ALLERGY TEST', text: "Check the client's hair condition and chemical history before starting the treatment.<br>Perform an allergy test to ensure there are no adverse reactions." },
+      { num: '2', title: 'CLARIFYING SHAMPOO', text: 'Wash the hair once with Sarah K Clarifying Shampoo.<br>Rinse thoroughly.' },
+      { num: '3', title: 'DRY', text: 'Blow-dry the hair until 100% dry.' },
+      { num: '4', title: 'SECTION', text: 'Divide the hair into 4 sections.' },
+      { num: '5', title: 'APPLY SARAH K CARNIVAL BRAZILIAN PROTEIN', text: 'Apply the product evenly 0.5 cm away from the scalp.<br>Comb through to distribute the product evenly.' },
+      { num: '6', title: 'PROCESSING TIME', text: 'Normal Hair: 60 minutes<br>Kinky/Very Curly Hair: 90 minutes' },
+      { num: '7', title: 'RINSE', text: 'Rinse the hair, remove 30% of the products leave 70%.' },
+      { num: '8', title: 'BLOW-DRY', text: 'Blow-dry the hair until 100% dry.<br>Apply La Vie en Rose Serum as a heat protectant before ironing the hair.' },
+      { num: '9', title: 'FLAT IRON', text: 'Use paper thin sections.<br>Normal Hair: 220°C (15–20 passes)<br>Virgin/Kinky Hair: 220–240°C (15–20 passes)<br>After iron cool down the hair.' },
+      { num: '10', title: 'WASH AND APPLY SARAH K RIO NEUTRALIZER', text: 'Wash the hair thoroughly with clean water.<br>Apply Sarah K Rio Neutralizer evenly throughout the hair.<br>Massage gently for 5–10 minutes.<br>Rinse thoroughly with clean water.' },
+      { num: '11', title: 'FINISH', text: 'Blow-dry and style the hair using a paddle brush for a smooth, polished finish.<br>Use La Vie en Rose Serum as the final touch to smooth and add shine to the hair.' }
+    ]
+  },
+  'rio-pkg': {
+    title: 'Rio Package — Step-by-Step Application',
+    target: 'Slightly Damaged & Blonde Hair • 13 Steps (Word by Word)',
+    price: '₱24,300 Package SRP',
+    demoNotice: 'Includes Free Hands-on Personal Demo & Salon Training',
+    steps: [
+      { num: '1', title: 'HAIR ASSESSMENT', text: "Analyze the client's hair condition, texture, and chemical history.<br>Perform a strand test if necessary." },
+      { num: '2', title: 'SHAMPOO', text: 'Wash the hair once using Sarah K Clarifying Shampoo.<br>Rinse thoroughly.' },
+      { num: '3', title: 'SOS RECOVERY TREATMENT', text: 'Apply Sarah K SOS Recovery evenly from mid-length to ends.<br>Leave on for 20–25 minutes.<br>Rinse thoroughly.' },
+      { num: '4', title: 'BLOW DRY', text: 'Blow-dry the hair 100% dry.' },
+      { num: '5', title: 'SECTION THE HAIR', text: 'Divide the hair into 4–6 manageable sections.' },
+      { num: '6', title: 'APPLY RIO BRAZILIAN PROTEIN', text: 'Apply Sarah K Rio Brazilian Protein evenly, leaving approximately 0.5 cm away from the scalp.<br>Comb through to ensure even distribution.' },
+      { num: '7', title: 'PROCESSING TIME', text: 'Leave the product on for 60 minutes.' },
+      { num: '8', title: 'RINSE', text: 'Rinse the hair, remove 30% of the products leave 70%.' },
+      { num: '9', title: 'BLOW DRY', text: 'Blow-dry the hair 100% dry using a paddle brush.<br>Apply La Vie en Rose Serum as a heat protectant before ironing the hair.' },
+      { num: '10', title: 'FLAT IRON', text: 'Flat iron at 180°C, using 10–15 passes per thin section.' },
+      { num: '11', title: 'COOL DOWN', text: 'Allow the hair to cool completely.' },
+      { num: '12', title: 'NEUTRALIZE', text: 'Rinse the hair thoroughly with clean water.<br>Apply Sarah K Rio Neutralizer evenly throughout the hair.<br>Leave on for 5–15 minutes.<br>Rinse thoroughly with 100% clean water.' },
+      { num: '13', title: 'FINAL BLOW DRY', text: 'Blow-dry and style the hair using a paddle brush for a smooth, polished finish.<br>Use La Vie en Rose Serum as the final touch to smooth and add shine to the hair.' }
+    ]
+  },
+  'rio-pkg-extreme': {
+    title: 'Rio Package Extreme — Step-by-Step Application',
+    target: 'Extremely Damaged & Bleached Hair • 14 Steps (Word by Word)',
+    price: '₱25,800 Package SRP',
+    demoNotice: 'Includes Free Hands-on Personal Demo & Salon Training',
+    steps: [
+      { num: '1', title: 'HAIR ASSESSMENT', text: "Analyze the client's hair condition, texture, and chemical history.<br>Perform a strand test if necessary." },
+      { num: '2', title: 'SHAMPOO', text: 'Wash the hair once using Sarah K Clarifying Shampoo.<br>Rinse thoroughly.' },
+      { num: '3', title: 'SOS RECOVERY TREATMENT', text: 'Apply Sarah K SOS Recovery evenly from mid-length to ends.<br>Leave on for 30 minutes.' },
+      { num: '4', title: 'RINSE', text: 'Rinse the hair thoroughly with 100% clean water.' },
+      { num: '5', title: 'BLOW DRY', text: 'Blow-dry the hair 100% dry.' },
+      { num: '6', title: 'SECTION THE HAIR', text: 'Divide the hair into 4–6 manageable sections.' },
+      { num: '7', title: 'APPLY RIO BRAZILIAN PROTEIN', text: 'Apply Sarah K Rio Brazilian Protein evenly, leaving approximately 0.5 cm away from the scalp.<br>Comb through to ensure even distribution.' },
+      { num: '8', title: 'PROCESSING TIME', text: 'Leave the product on for 60 minutes.' },
+      { num: '9', title: 'RINSE', text: 'Rinse the hair, remove 30% of the products leave 70%.' },
+      { num: '10', title: 'BLOW DRY', text: 'Blow-dry the hair 100% dry using a paddle brush.<br>Apply La Vie en Rose Serum as a heat protectant before ironing the hair.' },
+      { num: '11', title: 'FLAT IRON', text: 'Flat iron at 180°C, using 10–15 passes per thin section.' },
+      { num: '12', title: 'COOL DOWN', text: 'Allow the hair to cool completely.' },
+      { num: '13', title: 'AMPOULE AND RIO NEUTRALIZER', text: 'Rinse the hair thoroughly with clean water.<br>Apply Ampoule evenly throughout the hair for 15 minutes.<br>Apply Rio Neutralizer and leave it on for 15 minutes.<br>Rinse thoroughly with 100% clean water.' },
+      { num: '14', title: 'FINAL BLOW DRY', text: 'Blow-dry and style the hair using a paddle brush for a smooth, polished finish.<br>Use La Vie en Rose Serum as the final touch to smooth and add shine to the hair.' }
+    ]
+  }
+};
+
+function initPackageProtocolModal() {
+  const modalOverlay = document.getElementById('packageModal') || document.getElementById('productModal');
+  const modalBody = document.getElementById('packageModalContent') || document.getElementById('modalContent');
+  const closeBtn = document.getElementById('packageModalCloseBtn') || document.getElementById('modalCloseBtn');
+  const triggerBtns = document.querySelectorAll('.btn-pkg-protocol');
+
+  if (!modalOverlay || !modalBody) return;
+
+  triggerBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pkgKey = btn.getAttribute('data-package');
+      const data = PACKAGE_PROTOCOLS[pkgKey];
+
+      if (!data) return;
+
+      modalBody.innerHTML = `
+        <div style="max-width: 780px; margin: 0 auto;">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; padding-bottom: 18px; border-bottom: 1.5px solid var(--baby-pink-border); flex-wrap: wrap;">
+            <div>
+              <span style="display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--baby-pink-deep); background: var(--baby-pink-soft); border: 1px solid var(--baby-pink-border); padding: 4px 12px; border-radius: var(--radius-pill); margin-bottom: 8px;">
+                ${data.target}
+              </span>
+              <h2 style="font-family: var(--font-serif); font-size: 32px; font-weight: 600; color: var(--color-noir); line-height: 1.2;">
+                ${data.title}
+              </h2>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 22px; font-weight: 800; color: var(--color-noir);">${data.price}</span>
+              <div style="font-size: 11px; font-weight: 700; color: #059669; margin-top: 4px;">🤝 Hands-on Personal Demo Included</div>
+            </div>
+          </div>
+
+          <!-- Hands-on Demo & Salon Requirement Highlight -->
+          <div style="background: linear-gradient(135deg, rgba(225, 237, 252, 0.7) 0%, rgba(254, 228, 238, 0.7) 50%, rgba(249, 238, 218, 0.5) 100%); border: 1px solid var(--baby-pink-border); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 20px;">🎓</span>
+            <div style="font-size: 13px; color: var(--color-espresso); line-height: 1.5;">
+              <strong>Exclusive Salon Partner Privilege:</strong> Every purchase of this package includes an authentic <strong>hands-on personal demonstration</strong> and in-depth technician training conducted directly by our Glossy Strand team for your salon staff.
+            </div>
+          </div>
+
+          <!-- Step by Step List -->
+          <div style="display: flex; flex-direction: column; gap: 12px; max-height: 52vh; overflow-y: auto; padding-right: 8px;">
+            ${data.steps.map(s => `
+              <div style="display: flex; gap: 14px; background: #FFFFFF; border: 1px solid var(--color-border-light); border-radius: var(--radius-md); padding: 14px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); align-items: flex-start;">
+                <span style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--pastel-blue-soft) 0%, var(--baby-pink-soft) 100%); border: 1.5px solid var(--baby-pink-border); font-size: 12px; font-weight: 800; color: var(--color-noir); flex-shrink: 0;">
+                  ${s.num}
+                </span>
+                <div style="font-size: 13.5px; line-height: 1.6; color: var(--color-espresso);">
+                  <div style="font-weight: 800; color: var(--color-noir); margin-bottom: 4px; letter-spacing: 0.5px;">${s.title}</div>
+                  <div style="color: var(--color-slate-muted); font-size: 13px;">${s.text}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--color-border-light);">
+            <div style="font-size: 12px; color: var(--color-slate-muted);">
+              ⚠️ Strictly for Salon Professionals &amp; DTI-Registered Salons with Permits only.
+            </div>
+            <a href="https://wa.me/639508970459?text=Hello%20Glossy%20Strand!%20I%20am%20inquiring%20about%20ordering%20the%20${encodeURIComponent(data.title)}%20(${encodeURIComponent(data.price)})%20with%20hands-on%20personal%20demo." target="_blank" class="cta-gold" style="font-size: 13px; padding: 11px 22px;">
+              Order Package &amp; Schedule Demo &rarr;
+            </a>
+          </div>
+        </div>
+      `;
+
+      modalOverlay.classList.add('active');
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => modalOverlay.classList.remove('active'));
+  }
+}
+
+/* =========================================================================
    7. CONCIERGE SALON ORDER & INQUIRY FORMS
    ========================================================================= */
 function initConciergeForm() {
@@ -413,9 +558,9 @@ function initConciergeForm() {
       const email = document.getElementById('partnerEmail')?.value || 'N/A';
       const city = document.getElementById('salonCity')?.value || 'Philippines';
       const pkg = document.getElementById('partnerPackageSelect')?.value || 'Salon Partner Package';
-      const notes = document.getElementById('partnerNotes')?.value || 'None';
-
-      const message = `*SALON PARTNER APPLICATION*%0A----------------------------------%0A*Applicant Name:* ${encodeURIComponent(partnerName)}%0A*Salon/Studio:* ${encodeURIComponent(salonName)}%0A*Mobile Phone:* ${encodeURIComponent(phone)}%0A*Email:* ${encodeURIComponent(email)}%0A*Address & City:* ${encodeURIComponent(city)}%0A*Selected Package:* ${encodeURIComponent(pkg)}%0A*Notes/Inquiries:* ${encodeURIComponent(notes)}%0A----------------------------------%0A_Sent to Christine Joy Juaniza (Glossy Strand Operations)_`;
+      const dti = document.getElementById('partnerDti')?.value || 'Pending Verification';
+      const permit = document.getElementById('partnerPermit')?.value || 'Pending Verification';
+      const message = `*SALON PARTNER APPLICATION*%0A----------------------------------%0A*Applicant Name:* ${encodeURIComponent(partnerName)}%0A*Salon/Studio:* ${encodeURIComponent(salonName)}%0A*DTI Reg. No.:* ${encodeURIComponent(dti)}%0A*Salon Permit No.:* ${encodeURIComponent(permit)}%0A*Mobile Phone:* ${encodeURIComponent(phone)}%0A*Email:* ${encodeURIComponent(email)}%0A*Address & City:* ${encodeURIComponent(city)}%0A*Selected Package:* ${encodeURIComponent(pkg)}%0A*Notes/Inquiries:* ${encodeURIComponent(notes)}%0A----------------------------------%0A_Sent to Christine Joy Juaniza (Glossy Strand Operations)_`;
       window.open(`https://wa.me/639508970459?text=${message}`, '_blank');
     });
   }
