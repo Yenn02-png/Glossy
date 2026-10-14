@@ -427,7 +427,7 @@ const PACKAGE_PROTOCOLS = {
   },
   'rio-pkg-extreme': {
     title: 'Rio Package Extreme — Step-by-Step Application',
-    target: 'Extremely Damaged & Bleached Hair • 14 Steps (Word by Word)',
+    target: '⭐ Best Seller for Salon Partners • Extremely Damaged & Bleached Hair • 14 Steps (Word by Word)',
     price: '₱25,800 Package SRP',
     demoNotice: 'Includes Free Hands-on Personal Demo & Salon Training',
     steps: [
